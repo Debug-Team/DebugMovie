@@ -3,6 +3,7 @@ from xml.dom import minidom
 
 import requests
 from lxml import html
+import os
 
 
 def pares_page(content):
@@ -53,7 +54,7 @@ def write_to_csv(content):
 
 # 保存为xml
 def write_to_xml(tags, content):
-    filename = "./resources/douban_movie.xml"
+    filename = os.getcwd()+"/src/main/resources/douban_movie.xml"
 
     # 新建xml文档对象
     xml = minidom.Document()

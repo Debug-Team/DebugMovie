@@ -4,6 +4,7 @@ from xml.dom import minidom
 import requests
 from requests import RequestException
 import re
+import os
 
 
 def get_one_page(url):
@@ -33,7 +34,7 @@ def parse_one_page(html):
 
 
 def write_to_csv(content):
-    csvnames = './resources/maoyan_movie.csv'
+    csvnames = '/resources/maoyan_movie.csv'
     flag = True
     with open(csvnames, 'a+', encoding='utf-8') as f:
         writer = csv.writer(f)
@@ -46,8 +47,9 @@ def write_to_csv(content):
 
 # 保存为xml
 def write_to_xml(tags, content):
-    filename = "./resources/maoyan_movie.xml"
+    filename = os.getcwd()+"/src/main/resources/maoyan_movie.xml"
 
+    print(filename)
     # 新建xml文档对象
     xml = minidom.Document()
 

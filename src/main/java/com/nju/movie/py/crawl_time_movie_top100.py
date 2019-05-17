@@ -4,6 +4,7 @@ import requests
 from bs4 import BeautifulSoup
 import re
 import csv
+import os
 
 
 # 定义爬取函数
@@ -70,7 +71,7 @@ def write_to_csv(content, csvname):
 
 # 保存为xml
 def write_to_xml(tags, content):
-    filename = "./resources/time_movie.xml"
+    filename = os.getcwd()+"/src/main/resources/time_movie.xml"
 
     # 新建xml文档对象
     xml = minidom.Document()

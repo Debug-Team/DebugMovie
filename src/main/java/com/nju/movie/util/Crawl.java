@@ -17,7 +17,7 @@ public class Crawl {
     public static void crawl(String fileName) {
 
         String path = System.getProperty("user.dir") + sep + "src" + sep + "main" + sep + "java" + sep + "com" + sep + "nju" + sep + "movie" + sep + "py" + sep + fileName;
-        String[] arguments = new String[]{"python", path};
+        String[] arguments = new String[]{"python", path, ""};
         String result = "";
         try {
             Process process = Runtime.getRuntime().exec(arguments);
@@ -32,7 +32,10 @@ public class Crawl {
             e.printStackTrace();
         }
 
+    }
 
+    public static void main(String[] args) {
+        start();
     }
 
 
