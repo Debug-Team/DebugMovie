@@ -33,6 +33,11 @@
                     <comCount>
                         <xsl:value-of select="comCount"/>
                     </comCount>
+                    <img>
+                        <xsl:value-of select="image"/>
+                    </img>
+                    <content>
+                    </content>
                 </movie>
             </xsl:for-each>
         </movies>
