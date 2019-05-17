@@ -112,9 +112,12 @@ public class MovieInfoController {
 
     public static Set<String> findNames(Map<String, Movie>... maps){
         Set<String> names = new HashSet<>();
-        for (Map<String, Movie> map : maps){
-            names.addAll(map.keySet());
+        //时光网name去重
+        for (String s : maps[0].keySet()){
+            names.add(s.split("/")[0]);
         }
+        names.addAll(maps[1].keySet());
+        names.addAll(maps[2].keySet());
         return names;
     }
 
