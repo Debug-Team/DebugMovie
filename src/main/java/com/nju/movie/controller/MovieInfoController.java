@@ -23,8 +23,8 @@ public class MovieInfoController {
 
     @GetMapping(value = "getMovieInfo")
     public static Object getMovieInfo() throws IllegalAccessException {
-        Crawl.start();
-        TransferUtil.startXML();
+//        Crawl.start();
+//        TransferUtil.startXML();
         return merge();
     }
 
