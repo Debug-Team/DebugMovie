@@ -51,8 +51,9 @@ public class TransferUtil {
         }
     }
 
-    public static void main(String[] args) {
-        String strs[] = {"douban", "maoyan", "time"};
+    public static void startXML() {
+        String root = "src/main/java/com/nju/movie/py/resources/";
+        String strs[] = {root + "douban", root + "maoyan", root + "time"};
 
         for (String s : strs){
             trans(s+"_movie.xml", s+"_after.xml", s+".xsl");

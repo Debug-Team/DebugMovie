@@ -3,6 +3,8 @@ package com.nju.movie.controller;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.nju.movie.domain.Movie;
+import com.nju.movie.util.Crawl;
+import com.nju.movie.util.TransferUtil;
 import com.nju.movie.util.XMLUtil;
 import org.jdom2.JDOMException;
 import org.springframework.expression.spel.ast.NullLiteral;
@@ -21,11 +23,15 @@ public class MovieInfoController {
 
     @GetMapping(value = "getMovieInfo")
     public static Object getMovieInfo() throws IllegalAccessException {
+        Crawl.start();
+        TransferUtil.startXML();
         return merge();
     }
 
     public static Object merge() {
-        String[] files = { "time_after.xml", "douban_after.xml", "maoyan_after.xml"};
+        String root = "src/main/java/com/nju/movie/py/resources/";
+
+        String[] files = { root+"time_after.xml", root+"douban_after.xml", root+"maoyan_after.xml"};
         Map<String, Movie> map0 = formatMovie(files[0]);
         Map<String, Movie> map1 = formatMovie(files[1]);
         Map<String, Movie> map2 = formatMovie(files[2]);
