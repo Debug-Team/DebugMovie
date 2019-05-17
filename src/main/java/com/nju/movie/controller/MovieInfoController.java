@@ -84,6 +84,10 @@ public class MovieInfoController {
             }
         }
 
+        if (movie == null){
+            System.out.print(name);
+        }
+
         //载入3平台评分和排名
         movie.setRate_time(Optional.ofNullable(maps[0].get(name)).orElse(new Movie()).getRate());
         movie.setRank_time(Optional.ofNullable(maps[0].get(name)).orElse(new Movie()).getRank());
@@ -134,7 +138,7 @@ public class MovieInfoController {
         JSONArray array = json.getJSONObject("movies").getJSONArray("movie");
         for (int i=0; i<100; i++){
             String title = array.getJSONObject(i).getJSONArray("title").getString(0);
-            if (file.startsWith("time")){
+            if (file.endsWith("time_after.xml")){
                 title = title.split("/")[0];
             }
             map.put(title, transSingle(array.getJSONObject(i)));
