@@ -20,18 +20,15 @@ import java.util.*;
 public class MovieInfoController {
 
     @GetMapping(value = "getMovieInfo")
-    public static Object getMovieInfo() throws IOException, JDOMException, IllegalAccessException {
-//        JSONObject json = XMLUtil.xml2JSON(XMLUtil.getBytes("time_after.xml"));
+    public static Object getMovieInfo() throws IllegalAccessException {
         return merge();
     }
 
-    public static Object merge() throws IllegalAccessException {
+    public static Object merge() {
         String[] files = { "time_after.xml", "douban_after.xml", "maoyan_after.xml"};
         Map<String, Movie> map0 = formatMovie(files[0]);
         Map<String, Movie> map1 = formatMovie(files[1]);
         Map<String, Movie> map2 = formatMovie(files[2]);
-
-        Movie M =mergeSingleMovie("寻梦环游记",map0,map1,map2);
 
         Set<String> names = findNames(map0, map1, map2);
         Map<String, Movie> res = new HashMap<>();
@@ -39,11 +36,6 @@ public class MovieInfoController {
             res.put(name, mergeSingleMovie(name, map0, map1, map2));
         }
 
-        //
-        Movie m1 = map0.get("肖申克的救赎");
-        sup(m1, map1.get("肖申克的救赎"));
-        sup(m1, map2.get("肖申克的救赎"));
-        //
         return JSONObject.toJSON(res);
     }
 
