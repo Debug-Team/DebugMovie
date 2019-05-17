@@ -31,6 +31,8 @@ public class MovieInfoController {
         Map<String, Movie> map1 = formatMovie(files[1]);
         Map<String, Movie> map2 = formatMovie(files[2]);
 
+        Movie M =mergeSingleMovie("寻梦环游记",map0,map1,map2);
+
         Set<String> names = findNames(map0, map1, map2);
         Map<String, Movie> res = new HashMap<>();
         for (String name : names){
@@ -74,12 +76,12 @@ public class MovieInfoController {
         }
 
         //载入3平台评分和排名
-        movie.setRate_douban(Optional.ofNullable(maps[0].get(name)).orElse(new Movie()).getRate());
-        movie.setRank_douban(Optional.ofNullable(maps[0].get(name)).orElse(new Movie()).getRank());
+        movie.setRate_time(Optional.ofNullable(maps[0].get(name)).orElse(new Movie()).getRate());
+        movie.setRank_time(Optional.ofNullable(maps[0].get(name)).orElse(new Movie()).getRank());
         movie.setRate_douban(Optional.ofNullable(maps[1].get(name)).orElse(new Movie()).getRate());
         movie.setRank_douban(Optional.ofNullable(maps[1].get(name)).orElse(new Movie()).getRank());
-        movie.setRate_douban(Optional.ofNullable(maps[2].get(name)).orElse(new Movie()).getRate());
-        movie.setRank_douban(Optional.ofNullable(maps[2].get(name)).orElse(new Movie()).getRank());
+        movie.setRate_maoyan(Optional.ofNullable(maps[2].get(name)).orElse(new Movie()).getRate());
+        movie.setRank_maoyan(Optional.ofNullable(maps[2].get(name)).orElse(new Movie()).getRank());
 
         return movie;
     }
