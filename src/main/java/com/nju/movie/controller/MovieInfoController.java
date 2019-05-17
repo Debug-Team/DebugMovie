@@ -126,7 +126,7 @@ public class MovieInfoController {
             e.printStackTrace();
         }
         JSONArray array = json.getJSONObject("movies").getJSONArray("movie");
-        for (int i=0; i<array.size(); i++){
+        for (int i=0; i<100; i++){
             String title = array.getJSONObject(i).getJSONArray("title").getString(0);
             if (file.startsWith("time")){
                 title = title.split("/")[0];
