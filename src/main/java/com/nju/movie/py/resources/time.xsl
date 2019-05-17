@@ -34,6 +34,7 @@
                         <xsl:value-of select="image"/>
                     </img>
                     <content>
+                        <xsl:value-of select="realcontent"/>
                     </content>
                 </movie>
             </xsl:for-each>
