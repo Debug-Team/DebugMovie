@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DebugMovie</title>
+
+    <link rel="stylesheet" href="css/element-ui.css">
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+<div id="app">
+    <el-container>
+        <el-header>
+            <h1>
+                电影排行榜TOP100
+            </h1>
+        </el-header>
+        <el-main>
+            <!--搜索框-->
+            <div>
+                <el-autocomplete
+                        class="inline-input"
+                        v-model="search"
+                        :fetch-suggestions="querySearch"
+                        placeholder="请输入内容"
+                        prefix-icon="el-icon-search"
+                        @select="handleSelect"
+                ></el-autocomplete>
+            </div>
+            <!--<div style="width: 1700px; margin: auto;">-->
+            <!--排行榜列表-->
+            <div class="list">
+                <!--el的滚动条-->
+                <el-scrollbar style="height: 100%;" wrapStyle="overflow-x: hidden;">
+                    <!--每一项-->
+                    <el-card :body-style="{ padding: '0px' , textAlign: 'left', verticalAlign: 'top'}" v-for="item in movies" v-bind:key="item.index">
+                        <div class="indexPart inline-block"><i>{{item.index}}</i></div>
+                        <img :src="item.img" class="image left">
+                        <div class="infoPart clearfix inline-block">
+                            <div class="infoItem">
+                                <strong class="name">{{item.title}}</strong>
+                            </div>
+                            <div class="infoItem">
+                                导演：<span>{{item.director}}</span>
+                            </div>
+                            <div class="infoItem">
+                                主演：<span>{{item.actors}}</span>
+                            </div>
+                            <div class="infoItem">
+                                类型：<span>{{item.geners}}</span>
+                            </div>
+                            <div class="infoItem">
+                                国家：<span>{{item.country}}</span>
+                            </div>
+                            <div class="infoItem">
+                                时间：<span>{{item.date}}</span>
+                            </div>
+                            <div class="infoItem">
+                                {{item.content}}
+                            </div>
+                        </div>
+                        <div class="ratePart right">
+                            <div class="site">
+                                <img src="assets/猫眼.png" class="siteLogo"/>
+                                <div class="siteIndex inline-block"><span v-if="item.rank_maoyan !== null">No.</span><strong><i><big>{{item.rank_maoyan}}</big></i></strong></div>
+                                <div class="siteRate inline-block"><strong><i><big>{{item.rate_maoyan}}</big></i></strong></div>
+                                <div class="siteNumbers inline-block">{{item.comCount_maoyan}}</div>
+                            </div>
+                            <div class="site">
+                                <img src="assets/豆瓣.png" class="siteLogo"/>
+                                <div class="siteIndex inline-block"><span v-if="item.rank_douban !== null">No.</span><strong><i><big>{{item.rank_douban}}</big></i></strong></div>
+                                <div class="siteRate inline-block"><strong><i><big>{{item.rate_douban}}</big></i></strong></div>
+                                <div class="siteNumbers inline-block">{{item.comCount_douban}}</div>
+                            </div>
+                            <div class="site">
+                                <img src="assets/时光.png" class="siteLogo"/>
+                                <div class="siteIndex inline-block"><span v-if="item.rank_time !== null">No.</span><strong><i><big>{{item.rank_time}}</big></i></strong></div>
+                                <div class="siteRate inline-block"><strong><i><big>{{item.rate_time}}</big></i></strong></div>
+                                <div class="siteNumbers inline-block">{{item.comCount_time}}</div>
+                            </div>
+                        </div>
+                    </el-card>
+                </el-scrollbar>
+            </div>
+            <!--</div>-->
+        </el-main>
+    </el-container>
+</div>
+
+</body>
+
+<script src="js/vue.js"></script>
+<script src="js/element-ui.js"></script>
+<script src="js/jquery-3.4.1.min.js"></script>
+<script src="js/index.js"></script>
+</html>

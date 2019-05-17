@@ -1,0 +1,90 @@
+#app {
+    font-family: 'Avenir', Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: #2c3e50;
+    margin-top: 40px;
+}
+.left {
+    float: left;
+}
+.right {
+    float: right;
+}
+.inline-block {
+    display: inline-block;
+}
+h1, h2 {
+    font-weight: normal;
+}
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+li {
+    display: inline-block;
+    margin: 0 10px;
+}
+a {
+    color: #42b983;
+}
+.el-main{
+    margin-top: 30px;
+}
+.list {
+    height: 740px;
+    width: 1000px;
+    margin: auto;
+    overflow: auto;
+    overflow-x: hidden;
+}
+.el-scrollbar__wrap {
+    overflow-x: hidden;
+}
+.el-card {
+    height: 220px;
+    margin: 20px 0;
+    position: relative;
+}
+.indexPart {
+    position: absolute;
+    bottom: 5px;
+    right: 10px;
+    color: #7a7a7a;
+    font-size: 25px;
+}
+.image{
+    width: 160px;
+    height: 220px;
+}
+.infoPart {
+    width: 400px;
+    height: 200px;
+    padding: 10px;
+}
+.ratePart {
+    height: 130px;
+    padding: 10px;
+    text-align: right;
+    /*font-size: 22px;*/
+}
+.site {
+    margin: 15px 0;
+}
+.ratePart .siteLogo{
+    width: 130px;
+    vertical-align: middle;
+}
+.ratePart .siteIndex{
+    width: 60px;
+    vertical-align: middle;
+}
+.ratePart .siteRate{
+    width: 60px;
+    vertical-align: middle;
+}
+.ratePart .siteNumbers{
+    width: 130px;
+    vertical-align: middle;
+}
