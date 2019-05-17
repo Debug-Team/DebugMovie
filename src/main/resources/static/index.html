@@ -25,13 +25,27 @@
                         placeholder="请输入内容"
                         prefix-icon="el-icon-search"
                         @select="handleSelect"
+                        clearable
                 ></el-autocomplete>
+                <el-input
+                        style="width: 100px"
+                        placeholder="最小值"
+                        v-model="min"
+                        clearable>
+                </el-input>
+                <el-input
+                        style="width: 100px"
+                        placeholder="最大值"
+                        v-model="max"
+                        clearable>
+                </el-input>
             </div>
             <!--<div style="width: 1700px; margin: auto;">-->
             <!--排行榜列表-->
             <div class="list">
                 <!--el的滚动条-->
-                <el-scrollbar style="height: 100%;" wrapStyle="overflow-x: hidden;">
+                <el-scrollbar style="height: 100%;">
+                <!--<el-scrollbar style="height: 100%;" wrapStyle="overflow-x: hidden;">-->
                     <!--每一项-->
                     <el-card :body-style="{ padding: '0px' , textAlign: 'left', verticalAlign: 'top'}" v-for="item in movies" v-bind:key="item.index">
                         <div class="indexPart inline-block"><i>{{item.index}}</i></div>

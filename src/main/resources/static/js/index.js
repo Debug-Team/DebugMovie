@@ -4,7 +4,9 @@ var app = new Vue({
         search: '',
         nameList: [],
         douban_need: 'https://images.weserv.nl/?url=',
-        movies_all: []
+        movies_all: [],
+        min: '',
+        max: ''
     },
     methods:{
         querySearch(queryString, cb) {
@@ -39,7 +41,7 @@ var app = new Vue({
         movies.sort((movie1, movie2) => {
             return movie1['rank'] - movie2['rank'];
         })
-        console.log(movies)
+        // console.log(movies)
         //添加到总网站名称里
         for(var index in movies){
             this.nameList.push({value: movies[index].title});
@@ -57,49 +59,17 @@ var app = new Vue({
         // console.log(this.nameList)
 
         this.movies_all = movies;
-        // this.movies_all = [
-        //     {
-        //         index: 1, name: '肖申克的救赎', director: '', actors: '蒂姆·罗宾斯,摩根·弗里曼,鲍勃·冈顿', geners: '', date: '1994-10-14(美国)', image: 'https://p0.meituan.net/movie/283292171619cdfd5b240c8fd093f1eb255670.jpg@160w_220h_1e_1c',
-        //         index_maoyan: 1, rate_maoyan: '9.5', numbers_maoyan: '',
-        //         index_douban: 1, rate_douban: '9.5', numbers_douban: '1422653人评价',
-        //         index_mtime: 1, rate_mtime: '9.5', numbers_mtime: ' 63249人评分',
-        //     },
-        //     {
-        //         index: 2, name: '肖申克的救赎', director: '', actors: '蒂姆·罗宾斯,摩根·弗里曼,鲍勃·冈顿', geners: '', date: '1994-10-14(美国)', image: 'https://p0.meituan.net/movie/283292171619cdfd5b240c8fd093f1eb255670.jpg@160w_220h_1e_1c',
-        //         index_maoyan: 1, rate_maoyan: '9.5', numbers_maoyan: '',
-        //         index_douban: 1, rate_douban: '9.5', numbers_douban: '1422653人评价',
-        //         index_mtime: 1, rate_mtime: '9.5', numbers_mtime: ' 63249人评分',
-        //     },
-        //     {
-        //         index: 3, name: '肖申克的救赎', director: '', actors: '蒂姆·罗宾斯,摩根·弗里曼,鲍勃·冈顿', geners: '', date: '1994-10-14(美国)', image: 'https://p0.meituan.net/movie/283292171619cdfd5b240c8fd093f1eb255670.jpg@160w_220h_1e_1c',
-        //         index_maoyan: 1, rate_maoyan: '9.5', numbers_maoyan: '',
-        //         index_douban: 1, rate_douban: '9.5', numbers_douban: '1422653人评价',
-        //         index_mtime: 1, rate_mtime: '9.5', numbers_mtime: ' 63249人评分',
-        //     },
-        //     {
-        //         index: 4, name: '肖申克的救赎', director: '', actors: '蒂姆·罗宾斯,摩根·弗里曼,鲍勃·冈顿', geners: '', date: '1994-10-14(美国)', image: 'https://p0.meituan.net/movie/283292171619cdfd5b240c8fd093f1eb255670.jpg@160w_220h_1e_1c',
-        //         index_maoyan: 1, rate_maoyan: '9.5', numbers_maoyan: '',
-        //         index_douban: 1, rate_douban: '9.5', numbers_douban: '1422653人评价',
-        //         index_mtime: 1, rate_mtime: '9.5', numbers_mtime: ' 63249人评分',
-        //     },
-        //     {
-        //         index: 5, name: '肖申克的救赎', director: '', actors: '蒂姆·罗宾斯,摩根·弗里曼,鲍勃·冈顿', geners: '', date: '1994-10-14(美国)', image: 'https://p0.meituan.net/movie/283292171619cdfd5b240c8fd093f1eb255670.jpg@160w_220h_1e_1c',
-        //         index_maoyan: 1, rate_maoyan: '9.5', numbers_maoyan: '',
-        //         index_douban: 1, rate_douban: '9.5', numbers_douban: '1422653人评价',
-        //         index_mtime: 1, rate_mtime: '9.5', numbers_mtime: ' 63249人评分',
-        //     }
-        // ]
     },
-    // mounted () {
-    //     this.nameList = this.loadAll();
-    // },
     computed: {
         movies: function () {
             let searchKey = this.search;
+            let min = this.min === '' ? 0 : this.min;
+            let max = this.max === '' ? 200 : this.max;
             return this.movies_all.filter(function (item) {
                 // console.log(item.name.indexOf(searchKey.toLowerCase()))
                 // return item.name.indexOf(searchKey) !== -1;
-                return item.title.indexOf(searchKey) !== -1;
+                return min <= item.index && item.index <= max
+                    && item.title.indexOf(searchKey) !== -1;
             })
         }
     }
