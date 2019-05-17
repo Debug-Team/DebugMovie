@@ -35,8 +35,19 @@ public class MovieInfoController {
         for (String name : names){
             res.put(name, mergeSingleMovie(name, map0, map1, map2));
         }
+        countRank(res);
 
         return JSONObject.toJSON(res);
+    }
+
+    public static void countRank(Map<String, Movie> res){
+        for (Movie movie : res.values()){
+            String r1 = movie.getRank_douban() == null ? "101" : movie.getRank();
+            String r2 = movie.getRank_time() == null ? "101" : movie.getRank();
+            String r3 = movie.getRank_maoyan() == null ? "101" : movie.getRank();
+            int rank = Integer.parseInt(r1) + Integer.parseInt(r2) + Integer.parseInt(r3);
+            movie.setRank((rank/3) + "");
+        }
     }
 
     public static Movie mergeSingleMovie(String name, Map<String, Movie>... maps){
