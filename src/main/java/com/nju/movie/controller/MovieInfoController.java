@@ -92,6 +92,9 @@ public class MovieInfoController {
         movie.setRate_maoyan(Optional.ofNullable(maps[2].get(name)).orElse(new Movie()).getRate());
         movie.setRank_maoyan(Optional.ofNullable(maps[2].get(name)).orElse(new Movie()).getRank());
 
+        //3平台评价人数,maoyan没有
+        movie.setComCount_time(Optional.ofNullable(maps[0].get(name)).orElse(new Movie()).getComCount());
+        movie.setComCount_douban(Optional.ofNullable(maps[1].get(name)).orElse(new Movie()).getComCount());
         return movie;
     }
 

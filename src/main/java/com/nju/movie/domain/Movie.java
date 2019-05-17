@@ -18,8 +18,35 @@ public class Movie {
     private String rank_douban;
     private String rank_maoyan;
     private String rank_time;
+    private String comCount_douban;
+    private String comCount_maoyan;
+    private String comCount_time;
 
     public Movie() {
+    }
+
+    public String getComCount_douban() {
+        return comCount_douban;
+    }
+
+    public void setComCount_douban(String comCount_douban) {
+        this.comCount_douban = comCount_douban;
+    }
+
+    public String getComCount_maoyan() {
+        return comCount_maoyan;
+    }
+
+    public void setComCount_maoyan(String comCount_maoyan) {
+        this.comCount_maoyan = comCount_maoyan;
+    }
+
+    public String getComCount_time() {
+        return comCount_time;
+    }
+
+    public void setComCount_time(String comCount_time) {
+        this.comCount_time = comCount_time;
     }
 
     public String getRank_douban() {
