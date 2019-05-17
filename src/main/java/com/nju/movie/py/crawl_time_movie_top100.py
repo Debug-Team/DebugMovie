@@ -71,7 +71,7 @@ def write_to_csv(content, csvname):
 
 # 保存为xml
 def write_to_xml(tags, content):
-    filename = os.getcwd()+"/src/main/resources/time_movie.xml"
+    filename = os.getcwd()+"/src/main/java/com/nju/movie/py/resources/time_movie.xml"
 
     # 新建xml文档对象
     xml = minidom.Document()

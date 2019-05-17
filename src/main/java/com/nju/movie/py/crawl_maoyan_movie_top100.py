@@ -47,7 +47,7 @@ def write_to_csv(content):
 
 # 保存为xml
 def write_to_xml(tags, content):
-    filename = os.getcwd()+"/src/main/resources/maoyan_movie.xml"
+    filename = os.getcwd()+"/src/main/java/com/nju/movie/py/resources/maoyan_movie.xml"
 
     print(filename)
     # 新建xml文档对象
