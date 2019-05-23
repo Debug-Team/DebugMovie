@@ -34,7 +34,7 @@ a {
 }
 .list {
     height: 740px;
-    width: 1000px;
+    width: 1200px;
     margin: auto;
     overflow: auto;
     overflow-x: hidden;
@@ -88,3 +88,16 @@ a {
     width: 130px;
     vertical-align: middle;
 }
+
+.playPart{
+    width: 190px;
+    margin: 10px 0 10px 10px;
+}
+.playPart ul li{
+    margin: 0;
+    width: 95%;
+}
+.playPart ul li a{
+    text-decoration: none;
+}
+

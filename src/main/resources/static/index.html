@@ -73,6 +73,15 @@
                                 {{item.content}}
                             </div>
                         </div>
+                        <div class="playPart right">
+                            <div><strong>播放地址</strong></div>
+                            <ul v-if="item.playUrls !== null">
+                                <li v-for="playUrl in item.playUrls.playUrl">
+                                    <a :href="playUrl.url[0]">{{playUrl.name[0]}}</a><div class="right inline-block">{{playUrl.price[0]}}</div>
+                                </li>
+                            </ul>
+                            <div v-else>暂无</div>
+                        </div>
                         <div class="ratePart right">
                             <div class="site">
                                 <img src="assets/猫眼.png" class="siteLogo"/>

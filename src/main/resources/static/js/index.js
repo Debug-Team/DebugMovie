@@ -55,6 +55,9 @@ var app = new Vue({
             if(movies[index].img.indexOf('doubanio') > 0){
                 movies[index].img = this.douban_need + movies[index].img;
             }
+            //转换playUrl为JSON
+            movies[index].playUrls = JSON.parse(movies[index].playUrls);
+            // console.log(movies[index].playUrls)
         }
         // console.log(this.nameList)
 
