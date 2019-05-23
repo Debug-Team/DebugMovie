@@ -99,6 +99,10 @@ public class MovieInfoController {
         //3平台评价人数,maoyan没有
         movie.setComCount_time(Optional.ofNullable(maps[0].get(name)).orElse(new Movie()).getComCount());
         movie.setComCount_douban(Optional.ofNullable(maps[1].get(name)).orElse(new Movie()).getComCount());
+
+        //载入豆瓣观影地址
+        movie.setPlayUrls(Optional.ofNullable(maps[1].get(name)).orElse(new Movie()).getPlayUrls());
+
         return movie;
     }
 
@@ -160,6 +164,7 @@ public class MovieInfoController {
         movie.setComCount(nullable(json, "comCount"));
         movie.setImg(nullable(json, "img"));
         movie.setContent(nullable(json, "content"));
+        movie.setPlayUrls(nullable(json, "playUrls"));
 
         return movie;
     }

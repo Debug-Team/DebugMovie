@@ -21,6 +21,7 @@ public class Movie {
     private String comCount_douban;
     private String comCount_maoyan;
     private String comCount_time;
+    private String playUrls;
 
     public Movie() {
     }
@@ -184,4 +185,13 @@ public class Movie {
     public void setComCount(String comCount) {
         this.comCount = comCount;
     }
+
+    public String getPlayUrls() {
+        return playUrls;
+    }
+
+    public void setPlayUrls(String playUrls) {
+        this.playUrls = playUrls;
+    }
+
 }
