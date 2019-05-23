@@ -36,6 +36,7 @@
                     <content>
                         <xsl:value-of select="realcontent"/>
                     </content>
+                    <playUrls></playUrls>
                 </movie>
             </xsl:for-each>
         </movies>

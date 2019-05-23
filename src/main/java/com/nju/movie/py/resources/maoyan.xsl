@@ -34,6 +34,7 @@
                     </img>
                     <content>
                     </content>
+                    <playUrls></playUrls>
                 </movie>
             </xsl:for-each>
         </movies>

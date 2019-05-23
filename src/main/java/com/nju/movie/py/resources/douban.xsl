@@ -38,6 +38,21 @@
                     </img>
                     <content>
                     </content>
+                    <playUrls>
+                        <xsl:for-each select="playUrls/playUrl">
+                            <playUrl>
+                                <name>
+                                    <xsl:value-of select="playName"/>
+                                </name>
+                                <url>
+                                    <xsl:value-of select="playUrl"/>
+                                </url>
+                                <price>
+                                    <xsl:value-of select="playPrice"/>
+                                </price>
+                            </playUrl>
+                        </xsl:for-each>
+                    </playUrls>
                 </movie>
             </xsl:for-each>
         </movies>
